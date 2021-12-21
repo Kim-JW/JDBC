@@ -18,7 +18,7 @@ public class UpdateData {
 		String user = "root";
 		String passwd = "1234";
 		try (Connection conn = DriverManager.getConnection(url, user, passwd);
-				PreparedStatement pstmt = conn.prepareStatement("update student set score = ? where name = ?");
+				PreparedStatement pstmt = conn.prepareStatement("update student set score = ? where name = ?"); // where절 안주면 다 바뀐다.
 				Scanner scan = new Scanner(System.in);){
 			System.out.print("학생 이름을 입력하세요 : ");
 		    String name = scan.nextLine();
