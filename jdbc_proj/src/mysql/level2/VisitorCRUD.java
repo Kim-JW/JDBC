@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// C-Create, R-Read, U-Update, D-Delete
+// VisitorDAO(Data Access Object) - DB 연동을 전담하는 역할의 객체를 만들때.
+
 public class VisitorCRUD {
 	public boolean c(Scanner scan) {
 		boolean result = false;
@@ -20,7 +23,6 @@ public class VisitorCRUD {
 				String name = scan.nextLine();
 				System.out.print("글의 내용을 입력하세요 : ");
 				String memo = scan.nextLine();
-				;
 				pstmt.setString(1, name);
 				pstmt.setString(2, memo);
 				pstmt.executeUpdate();
@@ -46,9 +48,10 @@ public class VisitorCRUD {
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery(
 					"select id, name, date_format(writedate, '%Y년 %m월 %d일') writedate, memo from visitor order by writedate desc");
-			vlist = new ArrayList<VisitorVO>();
+			vlist = new ArrayList<VisitorVO>(); // LinkedList 보다 ArrayList가 더 빨라서 좋음, 하지만 편집작업이 많으면 LinkedList가 더 유리. 하지만 읽고 쓰기만 주로 할때는 ArrayList.
+			VisitorVO vo = null;
 			while (rs.next()) {
-				VisitorVO vo = new VisitorVO();
+				vo = new VisitorVO();
 				vo.setId(rs.getInt("id"));
 				vo.setName(rs.getString("name"));
 				vo.setWriteDate(rs.getString("writedate"));

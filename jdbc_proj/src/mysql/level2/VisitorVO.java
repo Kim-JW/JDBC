@@ -1,6 +1,6 @@
 package mysql.level2;
 
-public class VisitorVO {
+public class VisitorVO { // ValueObject 값을 보관하는 객체
 	private int id;	
 	private String name;
 	private String writeDate;
