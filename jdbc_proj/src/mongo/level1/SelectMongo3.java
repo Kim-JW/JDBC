@@ -17,33 +17,33 @@ public class SelectMongo3 {
 		Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
 		mongoLogger.setLevel(Level.SEVERE);
 		try {
-            MongoClient mongoClient = new MongoClient("localhost", 27017);
-            MongoDatabase db = mongoClient.getDatabase("edudb");
-            MongoCollection<Document> collection = db.getCollection("book");
-           Document  doc = collection.find().first();
-           System.out.println(doc.toJson());           
-           
-           FindIterable<Document>dlist = collection.find(Filters.gt("price", 10000));
-           for(Document doc1 : dlist)
-           		System.out.println(doc1.toJson());
-           
-          dlist = collection.find(Filters.eq("name", "javascript"));
-           for(var doc1 : dlist)
-           		System.out.println(doc1.toJson());
-           
-           dlist = collection.find(Filters.regex("name", "^ja"));
-           for(var doc1 : dlist)
-           		System.out.println(doc1.toJson());
-           
-          dlist =  collection.find(Filters.and(Filters.gt("price", 10000), Filters.lte("price", 20000)));
-          for(Document doc1 : dlist)
-         		System.out.println(doc1.toJson());
- 
-            mongoClient.close();
-        } catch (Exception exception) {
-            System.err.println(exception.getClass().getName() + ": " + exception.getMessage());
-        }
+			MongoClient mongoClient = new MongoClient("localhost", 27017);
+			MongoDatabase db = mongoClient.getDatabase("edudb");
+			MongoCollection<Document> collection = db.getCollection("book");
+			
+			// 첫번째 Document만 return
+			Document doc = collection.find().first();
+			System.out.println(doc.toJson());
+
+			FindIterable<Document> dlist = collection.find(Filters.gt("price", 10000));
+			for (Document doc1 : dlist)
+				System.out.println(doc1.toJson());
+
+			dlist = collection.find(Filters.eq("name", "javascript"));
+			for (var doc1 : dlist)
+				System.out.println(doc1.toJson());
+
+			dlist = collection.find(Filters.regex("name", "^ja"));
+			for (var doc1 : dlist)
+				System.out.println(doc1.toJson());
+
+			dlist = collection.find(Filters.and(Filters.gt("price", 10000), Filters.lte("price", 20000)));
+			for (Document doc1 : dlist)
+				System.out.println(doc1.toJson());
+
+			mongoClient.close();
+		} catch (Exception exception) {
+			System.err.println(exception.getClass().getName() + ": " + exception.getMessage());
+		}
 	}
 }
-
-
