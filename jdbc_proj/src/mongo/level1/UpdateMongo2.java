@@ -21,9 +21,12 @@ public class UpdateMongo2 {
             MongoClient mongoClient = new MongoClient();
             MongoDatabase db = mongoClient.getDatabase("edudb");
             MongoCollection<Document> collection = db.getCollection("book");
+            
             Bson filter = Filters.eq("name", "spring");
+            
             Document doc = new Document("name", "SPRING").append("price", 30000);
-            collection.replaceOne(filter, doc);
+            
+            collection.replaceOne(filter, doc); // BSON 객체, 바꾸려는 Document
        
             MongoCursor<Document>  cursor  = collection.find().iterator();
             while(cursor.hasNext()) {
