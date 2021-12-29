@@ -85,7 +85,7 @@ public class QueryTestServlet extends HttpServlet {
 		
 		
 		out.print("</ul>"); out.print("<hr>");
-		out.print("<a href='http://70.12.113.164:8000/sedu/queryForm.html'>"
+		out.print("<a href='/edu/htmlexam/querytest.html'>"
 				+ "입력화면으로</a>");
 		
 		out.close();

@@ -15,8 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 public class FirstServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	// request 안에 Client의 정보들을 담아서 받아서 처리.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html; charset=UTF-8"); // document type 절대 오타 내면 안됨. 
+		// Client 객체 생성 전에 설정 해주어야함.
+		response.setContentType("text/html; charset=UTF-8"); // document type 절대 오타 내면 안됨
+		
 		PrintWriter out = response.getWriter(); // 요청 객체를 받아와서 그것을 가지고 수행해야 한다.
 		out.print("<h1>FirstServlet 수행 완료</h1>");
 		out.print("<hr>");
