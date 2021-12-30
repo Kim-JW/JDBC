@@ -13,8 +13,8 @@ public class RedirectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("RedirectServlet 수행 시작");
-		response.sendRedirect("/edu/htmlexam/first.html");
-		//response.sendRedirect("http://www.naver.com/");
+		//response.sendRedirect("/edu/htmlexam/first.html");
+		response.sendRedirect("http://www.naver.com/");
 		System.out.println("RedirectServlet 수행 종료");
 	}
 }
