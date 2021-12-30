@@ -29,7 +29,7 @@ public class UploadServlet extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 		for (Part part : parts) {
 			String fileName = part.getSubmittedFileName();
-			if (fileName != null) {
+			if (fileName != null && !fileName.equals("")) {
 				part.write(System.currentTimeMillis()+"_"+fileName); 
 				out.print("업로드한 파일 이름: " + fileName + "<br>");
 				out.print("크기: " + part.getSize() + "<br>");
