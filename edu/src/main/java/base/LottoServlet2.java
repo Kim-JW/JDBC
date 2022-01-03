@@ -33,15 +33,15 @@ public class LottoServlet2 extends HttpServlet {
 		RequestDispatcher rd;
 		
 		if(c[0] > 3) {
-			rd = request.getRequestDispatcher("/htmlexam/impossible.html");
+			rd = request.getRequestDispatcher("/jspsrc/impossible.jsp");
 		} else {
 			if (winNum == inNum) {
-				rd = request.getRequestDispatcher("/htmlexam/success.html");
+				rd = request.getRequestDispatcher("/jspsrc/success.jsp");
 				c[0] = 4;
 			} else {
 				c[0] +=1;
 				//session.setAttribute("cnt", c[0]);
-				rd =request.getRequestDispatcher("/htmlexam/fail.html");
+				rd =request.getRequestDispatcher("/jspsrc/fail.jsp");
 			}
 		}
 		

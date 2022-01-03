@@ -18,3 +18,5 @@
 <a href= "<%= request.getHeader("referer") %>"> 입력 화면으로</a>
 </body>
 </html>
+
+원석이 바보
