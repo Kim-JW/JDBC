@@ -28,6 +28,6 @@
 	%>
 	<h1><%=ltf %> 에 실패 ~~ 아쉽 아쉽</h1>
 	
-	<a href="/edu/htmlexam/lottoForm2.html">로또 응모</a>
+	<a href="/edu/htmlexam/lottoForm2.html" >로또 응모</a>
 </body>
 </html>
