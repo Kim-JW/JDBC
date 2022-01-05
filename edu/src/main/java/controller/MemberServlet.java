@@ -29,7 +29,7 @@ public class MemberServlet extends HttpServlet {
 		mv.setPasswd(m_passwd);
 		
 		request.setAttribute("memberInfo", mv);
-		request.getRequestDispatcher("/jspsrc/memberView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jspsrc/memberViewEL.jsp").forward(request, response);
 	}
 	
 	public String checkNull(String str) {

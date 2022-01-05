@@ -18,7 +18,6 @@ public class ProductServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		int num = Integer.parseInt(request.getParameter("pid").substring(1));
-		System.out.println(num);
 		
 		if(session.getAttribute("fruitInfo") == null) {
 			session.setAttribute("fruitInfo", new ProductVO(0,0,0));
@@ -29,7 +28,7 @@ public class ProductServlet extends HttpServlet {
 			IncreaseCnt(num, pv);
 		}
 		
-		request.getRequestDispatcher("/jspsrc/productView.jsp").forward(request, response);
+		request.getRequestDispatcher("/jspsrc/productViewEL.jsp").forward(request, response);
 	}
 	
 	public void IncreaseCnt(int num, ProductVO pv) {

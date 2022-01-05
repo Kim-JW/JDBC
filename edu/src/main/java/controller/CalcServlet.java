@@ -21,11 +21,11 @@ public class CalcServlet extends HttpServlet {
 
 		if (num2 == 0 && oper.equals("/")) {
 			request.setAttribute("result", msg);
-			request.getRequestDispatcher("/jspsrc/errorResult.jsp").forward(request, response);
+			request.getRequestDispatcher("/jspsrc/errorResultEL.jsp").forward(request, response);
 		} else {
 			result = cal(num1, num2, oper);
 			request.setAttribute("result", result);
-			request.getRequestDispatcher("/jspsrc/calcResult.jsp").forward(request, response);
+			request.getRequestDispatcher("/jspsrc/calcResultEL.jsp").forward(request, response);
 		}
 
 	}
